@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 //We are initializing our moongoose Schema
 const Schema = mongoose.Schema;
 //Creating the user Schema
-const { isEmail, isNumber } = require("validator");
+const { isEmail,isNumber } = require("validator");
 const userSchema = new Schema(
   {
     name: {
@@ -22,7 +22,7 @@ const userSchema = new Schema(
     },
     mobile: {
       type: Number,
-      required: [true, isNumber, "Enter a valid phonenumber"],
+      required: [true,isN
     },
   },
   {

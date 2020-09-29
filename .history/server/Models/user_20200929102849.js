@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 //We are initializing our moongoose Schema
 const Schema = mongoose.Schema;
 //Creating the user Schema
-const { isEmail, isNumber } = require("validator");
 const userSchema = new Schema(
   {
     name: {
@@ -12,17 +11,17 @@ const userSchema = new Schema(
     },
     password: {
       type: String,
-      minlength: [7, "The password should me minimum 7 chars"],
+      minlength: 7,
       required: true,
     },
     email: {
       type: String,
       unique: true,
-      required: [true, isEmail, "Enter a valid Email"],
+      required: true,
     },
     mobile: {
       type: Number,
-      required: [true, isNumber, "Enter a valid phonenumber"],
+      required: true,
     },
   },
   {
