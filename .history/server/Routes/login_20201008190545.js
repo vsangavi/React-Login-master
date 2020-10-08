@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const validator = require("validator");
+const bcrypt = require("bcrypt");
 
 const { loginPost } = require("../Controllers/userAuth");
 

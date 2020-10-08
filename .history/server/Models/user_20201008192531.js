@@ -33,7 +33,7 @@ const userSchema = new Schema(
 );
 userSchema.pre("save", async function (next) {
   //const salt = await bcrypt.genSalt();
-  this.password = await bcrypt.hash(this.password, 12);
+  this.password = await bcrypt.hash(this.password, salt);
   next();
 });
 //Assigning the Schema model to a variable and exporting it

@@ -44,37 +44,18 @@ const User = require("../Models/user");
     //   res.json({ message: "Not a valid email" });
     // }
 
-    // try {
-    //   let result = await User.findOne({ email });
-    //   res.json({ message: result });
-    // } catch (error) {
-    //   res.json({ message: error });
-    // }
+    try {
+      let result = await User.findOne({ email });
+      res.json({ message: result });
+    } catch (error) {
+      res.json({ message: error });
+    }
 
-    // bcrypt.compare(password, hash).then(function (err, result) {
-    //   if (err) {
-    //     res.json({ message: err });
-    //   } else {
-    //     res.json({ message: result });
-    //   }
-    // });
-
-    if ({ email } !== "") {
-      console.log(email);
-      try {
-        let result = await User.findOne({ email });
+    bcrypt.compare(password, hash).then(function (err, result) {
+      if (err) {
+        res.json({ message: err });
+      } else {
         res.json({ message: result });
-      } catch (error) {
-        res.json({ message: error });
       }
-    }
-    if (password !== "") {
-      bcrypt.compare(password, hash).then(function (err, result) {
-        if (err) {
-          res.json({ message: err });
-        } else {
-          res.json({ message: result });
-        }
-      });
-    }
+    });
   });
