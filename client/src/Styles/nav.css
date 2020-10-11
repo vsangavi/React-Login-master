@@ -9,6 +9,7 @@ ul {
   overflow: hidden;
   background-color: #dee2e6;
   box-shadow: #eef7f7;
+ 
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
@@ -25,4 +26,8 @@ li a {
 }
 .list-right {
   float: right;
+}
+.logo {
+  font-weight: bold;
+  font-size: large;
 }

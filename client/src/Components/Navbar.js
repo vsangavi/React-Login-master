@@ -5,6 +5,9 @@ class Navbar extends Component {
     return (
       <div className="navbar">
         <ul>
+          <li className="logo">
+            <a href="#home">Shopee</a>
+          </li>
           <li>
             <a href="#home">Home</a>
           </li>
