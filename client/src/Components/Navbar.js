@@ -17,14 +17,12 @@ class Navbar extends Component {
           <li>
             <a href="#contact">WishList</a>
           </li>
-          <li>
-            <a href="#contact">Orders</a>
-          </li>
-          <li className="list-right">
+          
+          {/* <li className="list-right">
             <a class="active" href="#about">
               Signout
             </a>
-          </li>
+          </li> */}
         </ul>
       </div>
     );

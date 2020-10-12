@@ -4,6 +4,8 @@ const User = require("../Models/user");
 const bcrypt = require("bcrypt");
 //requiring jwt for creating the token
 var jwt = require("jsonwebtoken");
+//requiring expressJWT
+let expressJWT = require("express-jwt");
 let result;
 //Signup controller
 (exports.signupPost = (req, res) => {
@@ -70,4 +72,28 @@ let result;
       res.json({ message: "User is not in the db" });
     }
   });
-module.exports.signout = () => {};
+//Signout route
+exports.signout = (req, res) => {
+  //clear cookies
+  res.clearCookie("token");
+  res.json({
+    message: "Signed out Done",
+  });
+};
+//Protected middleware
+exports.isLoggedin = expressJWT({
+  secret: process.env.secret,
+  userProperty: "authentication",
+  algorithms: ["HS256"],
+});
+//custom authenticated middleware
+exports.isAuthenticated = (req, res, next) => {
+  let authUser =
+    req.profile &&
+    req.authentication &&
+    req.profile._id === req.authentication._id;
+  if (!authUser) {
+    res.json({ error: "ACCESS DENIED" });
+  }
+  next();
+};

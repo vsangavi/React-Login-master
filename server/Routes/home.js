@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-//const { isSignedIn } = require("../Controllers/userAuth");
+const { isLoggedin } = require("../Controllers/userAuth");
 
-router.get("/home", (req, res) => {
-  res.json({ message: "Proected route is working" });
+router.get("/home", isLoggedin, (req, res) => {
+  res.json(req.authentication);
 });
 
 module.exports = router;

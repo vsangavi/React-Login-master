@@ -15,7 +15,7 @@ app.use(cookieParser());
 app.use("/", signupRoute);
 app.use("/", loginRoute);
 app.use("/", protectedRoute);
-
+//port listerning
 app.listen(port, () => {
   console.info(`Server is runnig in the Port ${port}`);
 });
